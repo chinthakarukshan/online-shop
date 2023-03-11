@@ -2,7 +2,7 @@ package com.ecommerce.demo.onlineshop.service.impl;
 
 import com.ecommerce.demo.onlineshop.dto.Item;
 import com.ecommerce.demo.onlineshop.dto.ShoppingCart;
-import com.ecommerce.demo.onlineshop.service.OnlineShopService;
+import com.ecommerce.demo.onlineshop.service.ShopItemService;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class OnlineShopServiceImpl implements OnlineShopService {
+public class ShopItemServiceImpl implements ShopItemService {
 
     static Item book;
     static Item toy;
@@ -52,15 +52,5 @@ public class OnlineShopServiceImpl implements OnlineShopService {
         return itemList;
     }
 
-    @Override
-    public ShoppingCart getShoppingCart() {
-        ShoppingCart myShoppingCart = new ShoppingCart();
-        List<Item> cartItems = new ArrayList<>();
-        cartItems.add(toy);
 
-        shoppingCart.setCartId(12);
-        shoppingCart.setCartItems(cartItems);
-
-        return shoppingCart;
-    }
 }
