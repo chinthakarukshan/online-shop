@@ -19,8 +19,12 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.cors()
             .and()
-            .authorizeHttpRequests((authz) -> authz.anyRequest()
-                                                   .permitAll())
+            .authorizeHttpRequests((authz) -> authz.requestMatchers(HttpMethod.GET, "/item/**")
+                                                   .permitAll()
+                                                   .requestMatchers("/cart/**")
+                                                   .authenticated()
+                                                   .anyRequest()
+                                                   .authenticated())
             .oauth2ResourceServer()
             .jwt();
         return http.build();
