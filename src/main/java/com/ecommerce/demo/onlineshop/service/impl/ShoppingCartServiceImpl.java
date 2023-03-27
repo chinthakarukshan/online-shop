@@ -12,13 +12,13 @@ import java.util.List;
 @Service
 public class ShoppingCartServiceImpl implements ShoppingCartService {
 
-    static Item book;
-    static Item toy;
-    static Item lamp;
+    Item book;
+    Item toy;
+    Item lamp;
 
     ShoppingCart shoppingCart;
 
-    static {
+    {
         book = new Item();
         book.setId(1);
         book.setCategory("Book");
