@@ -15,6 +15,8 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 public class SecurityConfig {
 
+    private static final String ASGARDEO_JWT_TOKEN_TYPE = "at+jwt";
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.cors()
@@ -35,7 +37,7 @@ public class SecurityConfig {
         //return JwtDecoders.fromIssuerLocation("https://api.asgardeo.io/t/chinthakaorg/oauth2/token");
         return NimbusJwtDecoder.withJwkSetUri(properties.getJwt().getJwkSetUri())
                                .jwtProcessorCustomizer(jwtCustomizer -> {
-                                   jwtCustomizer.setJWSTypeVerifier(new DefaultJOSEObjectTypeVerifier<>(new JOSEObjectType("at+jwt")));
+                                   jwtCustomizer.setJWSTypeVerifier(new DefaultJOSEObjectTypeVerifier<>(new JOSEObjectType(ASGARDEO_JWT_TOKEN_TYPE)));
                                })
                                .build();
     }
