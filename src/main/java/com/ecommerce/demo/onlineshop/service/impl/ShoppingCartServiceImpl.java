@@ -43,7 +43,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 
     @Override
     public ShoppingCart getShoppingCart() {
-        ShoppingCart myShoppingCart = new ShoppingCart();
+        shoppingCart = new ShoppingCart();
         List<Item> cartItems = new ArrayList<>();
         cartItems.add(toy);
 
